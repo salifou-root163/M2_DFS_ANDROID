@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ToFLy</string>
+    <string name="tofly">ToFLY</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_flight_map">FlightMapActivity</string>
+</resources>
