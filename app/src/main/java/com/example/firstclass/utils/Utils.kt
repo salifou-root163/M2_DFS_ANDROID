@@ -197,5 +197,6 @@ class Utils private constructor() {
                 } else duration.append(minute).append("min").toString()
             }
         }
+
     }
 }
