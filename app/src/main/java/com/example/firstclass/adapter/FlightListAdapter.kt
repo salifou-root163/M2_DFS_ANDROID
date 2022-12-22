@@ -22,6 +22,7 @@ class FlightListAdapter(private val flights : List<FlightModel>,
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
         val cardView = itemView.findViewById<CardView>(R.id.cardView)!!
         val departure = itemView.findViewById<TextView>(R.id.departureCity)!!
         val arrival = itemView.findViewById<TextView>(R.id.arrivalCity)!!

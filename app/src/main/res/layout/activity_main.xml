@@ -1,23 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    android:fillViewport="true"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="0dp">
 
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/tofly"
-        android:textAppearance="@style/tofly"
+        tools:context=".MainActivity">
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abril_fatface"
+            android:text="@string/tofly"
 
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+            android:textAppearance="@style/tofly"
+            android:textColor="@color/primaryDarkColor"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.115" />
 
     <Spinner
         android:id="@+id/airportList"
@@ -33,41 +43,40 @@
         app:layout_constraintTop_toBottomOf="@+id/title"
         app:layout_constraintVertical_bias="0.039" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="28dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/switchBtn"
-        app:layout_constraintEnd_toStartOf="@+id/switchBtn"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/switchBtn"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/icons8_d_collage_d_avion_96___" />
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="28dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/switchBtn"
+            app:layout_constraintEnd_toStartOf="@+id/switchBtn"
+            app:layout_constraintHorizontal_bias="0.989"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/switchBtn"
+            app:layout_constraintVertical_bias="0.583"
+            app:srcCompat="@drawable/icons8_d_collage_d_avion_96___" />
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="28dp"
-        android:layout_height="24dp"
-        android:layout_marginStart="60dp"
-        app:layout_constraintBottom_toBottomOf="@+id/switchBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/switchBtn"
-        app:layout_constraintTop_toTopOf="@+id/switchBtn"
-        app:layout_constraintVertical_bias="1.0"
-        app:srcCompat="@drawable/icons8_atterrissage_d_avion_72___" />
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="28dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="60dp"
+            app:layout_constraintBottom_toBottomOf="@+id/switchBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/switchBtn"
+            app:layout_constraintTop_toTopOf="@+id/switchBtn"
+            app:layout_constraintVertical_bias="0.583"
+            app:srcCompat="@drawable/icons8_atterrissage_d_avion_72___" />
 
-    <Switch
-        android:id="@+id/switchBtn"
-        android:layout_width="48dp"
-        android:layout_height="24dp"
-
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/airportList" />
+        <Switch
+            android:id="@+id/switchBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/airportList" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -76,79 +85,55 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="299dp" />
 
-    <EditText
-        android:id="@+id/beginDate"
-        android:layout_width="130dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:inputType="date"
-        android:clickable="false"
-        android:focusable="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/airportList"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.174" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingActionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="176dp"
+            android:clickable="true"
+            android:contentDescription="@string/date_range"
+            android:focusable="true"
+            app:layout_constraintBottom_toTopOf="@+id/search"
+            app:layout_constraintEnd_toEndOf="parent"
 
-    <EditText
-        android:id="@+id/endDate"
-        android:layout_width="130dp"
-        android:layout_height="42dp"
-        android:ems="10"
-        android:inputType="date"
-        android:clickable="false"
-        android:focusable="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/airportList"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.173" />
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_bias="0.931"
+            app:srcCompat="@drawable/ic_baseline_calendar_month_24"
+            tools:ignore="ImageContrastCheck" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="42dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/endDate"
-        app:layout_constraintStart_toEndOf="@+id/beginDate"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.168"
-        app:srcCompat="@drawable/icons8_fl_che_90___" />
+        <Button
+            android:id="@+id/search"
+            android:layout_width="275dp"
+            android:layout_height="60dp"
+            android:backgroundTint="@color/primaryDarkColor"
+            android:drawableLeft="@drawable/icons8_chercher_90___"
+            android:drawableTint="#FFFFFF"
+            android:text="Trouver les vols"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2"
+            app:layout_constraintVertical_bias="0.779" />
 
-    <ImageView
-        android:id="@+id/beginDateCalendar"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/beginDate"
-        app:layout_constraintEnd_toEndOf="@+id/beginDate"
-        app:layout_constraintTop_toTopOf="@+id/beginDate"
-        app:layout_constraintVertical_bias="0.44"
-        android:clickable="true"
-        app:srcCompat="@drawable/icons8_calendrier_96___" />
-
-    <ImageView
-        android:id="@+id/endDateCalendar"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
-        app:layout_constraintBottom_toBottomOf="@+id/endDate"
-        app:layout_constraintEnd_toEndOf="@+id/endDate"
-        app:layout_constraintTop_toTopOf="@+id/endDate"
-        app:layout_constraintVertical_bias="0.44"
-        android:clickable="true"
-        app:srcCompat="@drawable/icons8_calendrier_96___" />
-
-    <Button
-        android:id="@+id/search"
-        android:layout_width="275dp"
-        android:layout_height="60dp"
-        android:backgroundTint="#3083FB"
-        android:drawableLeft="@drawable/icons8_chercher_90___"
-        android:drawableTint="#FFFFFF"
-        android:text="Trouver les vols"
-        android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline2"
-        app:layout_constraintVertical_bias="0.778" />
+        <TextView
+            android:id="@+id/selectedDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="81dp"
+            android:layout_marginBottom="40dp"
+            android:text="@string/selected_date_range"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/search"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.507"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/floatingActionButton"
+            app:layout_constraintVertical_bias="0.44" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

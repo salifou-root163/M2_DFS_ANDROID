@@ -4,4 +4,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_flight_map">FlightMapActivity</string>
+    <string name="date_range">calendar</string>
+
+    <string name="selected_date_range">Select Date Range</string>
+
 </resources>

@@ -9,4 +9,16 @@
     <color name="white">#FFFFFFFF</color>
     <color name="custom">#A83083FB</color>
     <color name="departureHour">#2192FF</color>
+
+    <color name="primaryColor">#f44336</color>
+    <color name="primaryLightColor">#ff7961</color>
+    <color name="primaryDarkColor">#ba000d</color>
+    <color name="primaryTextColor">#000000</color>
+
+    <color name="secondaryColor">#d32f2f</color>
+    <color name="secondaryLightColor">#ff6659</color>
+    <color name="secondaryDarkColor">#9a0007</color>
+    <color name="secondaryTextColor">#ffffff</color>
+
+
 </resources>
