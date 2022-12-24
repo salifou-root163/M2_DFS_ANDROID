@@ -63,7 +63,7 @@ class FlightListActivityViewModel : ViewModel() {
         }
     }
 
-    fun getFlightMarkers(url:String){
+    fun  getFlightMarkers(url:String)  {
         viewModelScope.launch {
 
             var res= withContext(Dispatchers.IO){

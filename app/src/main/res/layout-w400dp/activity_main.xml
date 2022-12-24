@@ -15,35 +15,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".MainActivity">
+
         <TextView
             android:id="@+id/title"
-            android:layout_width="wrap_content"
+            android:layout_width="356dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/moondanceone"
             android:text="@string/tofly"
-
             android:textAppearance="@style/tofly"
             android:textColor="@color/primaryDarkColor"
+            android:textSize="120dp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline7"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/airportList"
+            android:layout_width="306dp"
+            android:layout_height="56dp"
+
+            android:background="#F3F8FE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.115" />
-
-    <Spinner
-        android:id="@+id/airportList"
-        android:layout_width="306dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="32dp"
-
-        android:background="#F3F8FE"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
-        app:layout_constraintVertical_bias="0.039" />
+            app:layout_constraintVertical_bias="0.01999998" />
 
         <ImageView
             android:id="@+id/imageView"
@@ -52,8 +52,7 @@
             android:layout_marginEnd="60dp"
             app:layout_constraintBottom_toBottomOf="@+id/switchBtn"
             app:layout_constraintEnd_toStartOf="@+id/switchBtn"
-            app:layout_constraintHorizontal_bias="0.989"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
             app:layout_constraintTop_toTopOf="@+id/switchBtn"
             app:layout_constraintVertical_bias="0.583"
             app:srcCompat="@drawable/icons8_d_collage_d_avion_96___" />
@@ -65,7 +64,6 @@
             android:layout_marginStart="60dp"
             app:layout_constraintBottom_toBottomOf="@+id/switchBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/switchBtn"
             app:layout_constraintTop_toTopOf="@+id/switchBtn"
             app:layout_constraintVertical_bias="0.583"
@@ -75,33 +73,25 @@
             android:id="@+id/switchBtn"
             android:layout_width="48dp"
             android:layout_height="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            android:layout_marginTop="15dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
             app:layout_constraintTop_toBottomOf="@+id/airportList" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="299dp" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floatingActionButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="176dp"
+            android:layout_marginTop="20dp"
             android:clickable="true"
+
             android:contentDescription="@string/date_range"
             android:focusable="true"
-            app:layout_constraintBottom_toTopOf="@+id/search"
             app:layout_constraintEnd_toEndOf="parent"
-
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
-            app:layout_constraintVertical_bias="0.931"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/imageView"
+            app:layout_constraintTop_toBottomOf="@+id/switchBtn"
             app:srcCompat="@drawable/ic_baseline_calendar_month_24"
             tools:ignore="ImageContrastCheck" />
 
@@ -109,34 +99,36 @@
             android:id="@+id/search"
             android:layout_width="275dp"
             android:layout_height="60dp"
+            android:layout_marginTop="95dp"
             android:backgroundTint="@color/primaryDarkColor"
             android:drawableLeft="@drawable/icons8_chercher_90___"
             android:drawableTint="#FFFFFF"
             android:text="Trouver les vols"
             android:textColor="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2"
-            app:layout_constraintVertical_bias="0.779" />
+            app:layout_constraintHorizontal_bias="0.479"
+            app:layout_constraintStart_toStartOf="@+id/guideline7"
+            app:layout_constraintTop_toBottomOf="@+id/switchBtn" />
 
         <TextView
             android:id="@+id/selectedDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="81dp"
-            android:layout_marginBottom="40dp"
+            android:layout_marginTop="40dp"
             android:text="@string/selected_date_range"
             android:textSize="16sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/search"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.507"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/floatingActionButton"
-            app:layout_constraintVertical_bias="0.44" />
+            app:layout_constraintEnd_toEndOf="@+id/imageView4"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
+            app:layout_constraintTop_toBottomOf="@+id/switchBtn" />
 
-
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="356dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

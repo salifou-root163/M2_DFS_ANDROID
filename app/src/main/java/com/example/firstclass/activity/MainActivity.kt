@@ -143,11 +143,14 @@ class MainActivity : AppCompatActivity() {
                 var url="https://opensky-network.org/api/flights/"+fT+"airport="+airportIcao+"&begin="+firstDate+"&end="+secondDate;
 
                 if (isOnline(this)){
+
+
                     val i = Intent(this@MainActivity, FlightListActivity::class.java)
-                    i.putExtra("url", url  )
-                    i.putExtra("begin", firstDate  )
-                    i.putExtra("end", secondDate  )
+                    i.putExtra("url", url.toString()  )
+                    i.putExtra("begin", firstDate.toString()  )
+                    i.putExtra("end", secondDate.toString()  )
                     startActivity(i)
+
                 }else{
                     Toast.makeText(this, "Veuillez vous connecter à internet.", Toast.LENGTH_SHORT).show()
                 }

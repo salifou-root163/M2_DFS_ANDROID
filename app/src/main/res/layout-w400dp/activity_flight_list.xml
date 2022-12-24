@@ -31,5 +31,16 @@
         app:layout_constraintStart_toEndOf="@+id/flight_list_fragment"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="76dp"
+        android:layout_height="102dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/flight_list_fragment"
+        app:layout_constraintEnd_toEndOf="@+id/flight_list_fragment"
+        app:layout_constraintStart_toStartOf="@+id/flight_list_fragment"
+        app:layout_constraintTop_toTopOf="@+id/flight_list_fragment"
+        />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,18 +55,9 @@ class FlightRealTimeFragment : Fragment() {
 
                 map.clear()
 
-                Log.d("test --- test", it.toString());
+                //Log.d("test --- test", it.toString());
 
 
-
-                real_icao.visibility= View.INVISIBLE
-                real_callsign.visibility= View.INVISIBLE
-                real_origin_country.visibility= View.INVISIBLE
-                real_time_position.visibility= View.INVISIBLE
-                real_time_last_contact.visibility= View.INVISIBLE
-                real_time_last_contact.visibility= View.INVISIBLE
-                real_time_latitude.visibility= View.INVISIBLE
-                real_time_baro_altitude.visibility= View.INVISIBLE
 
                 if (it.states!==null){
                     map.addMarker( MarkerOptions().position(LatLng(it.states[0][6] as Double , it.states[0][5] as Double  )) )
@@ -77,25 +68,43 @@ class FlightRealTimeFragment : Fragment() {
                     map.animateCamera(camera)
 
                     //
-                     real_icao.visibility= View.VISIBLE
-                     real_callsign.visibility= View.VISIBLE
-                     real_origin_country.visibility= View.VISIBLE
-                    real_time_position.visibility= View.INVISIBLE
-                     real_time_last_contact.visibility= View.VISIBLE
-                     real_time_last_contact.visibility= View.VISIBLE
-                     real_time_latitude.visibility= View.VISIBLE
-                     real_time_baro_altitude.visibility= View.VISIBLE
+
 
 
                     // Set the text of the TextView
-                    real_icao.text = it.states[0][0].toString()
-                    real_callsign.text = it.states[0][1].toString()
-                    real_origin_country.text = it.states[0][2].toString()
-                    real_time_position.text = it.states[0][3].toString()
-                    real_time_last_contact.text = it.states[0][4].toString()
-                    real_time_longitude.text = it.states[0][5].toString()
-                    real_time_latitude.text = it.states[0][6].toString()
-                    real_time_baro_altitude.text = it.states[0][7].toString()
+                    if (it.states[0][0]!= null){
+                        real_icao.text = it.states[0][0].toString()
+                    }
+                    if (it.states[0][1]!= null){
+                        real_callsign.text = it.states[0][1].toString()
+                    }
+                    if (it.states[0][2]!= null){
+                        real_origin_country.text = it.states[0][2].toString()
+                    }
+                    if (it.states[0][3]!= null){
+                        real_time_position.text = it.states[0][3].toString()
+                    }
+                    if (it.states[0][4]!= null){
+                        real_time_last_contact.text = it.states[0][4].toString()
+                    }
+                    if (it.states[0][5]!= null){
+                        real_time_longitude.text = it.states[0][5].toString()
+                    }
+                    if (it.states[0][6]!= null){
+                        real_time_latitude.text = it.states[0][6].toString()
+                    }
+                    if (it.states[0][7]!= null){
+                        real_time_baro_altitude.text = it.states[0][7].toString()
+                    }
+
+
+
+
+
+
+
+
+
 
                 }else{
                     val toast = Toast.makeText(context, "Nothing to show.", Toast.LENGTH_SHORT)
