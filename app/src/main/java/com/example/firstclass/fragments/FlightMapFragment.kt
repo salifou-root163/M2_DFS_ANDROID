@@ -1,6 +1,7 @@
 package com.example.firstclass.fragments
 
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,6 +22,7 @@ import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.LatLngBounds
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.PolylineOptions
 import java.text.DecimalFormat
 
 
@@ -43,7 +45,7 @@ class FlightMapFragment : Fragment() {
         supportMapFragment = childFragmentManager.findFragmentById(R.id.fragment_map_container) as SupportMapFragment
 
         realTimeBtn= view.findViewById(R.id.realTime)
-        realTimeBtn.isEnabled=false
+
 
         //get data from flightMapActivity to set flights list button if we are on phone screen
         val bundle = arguments
@@ -91,42 +93,37 @@ class FlightMapFragment : Fragment() {
                 viewModel.getFlightMarkersLiveData().observe(viewLifecycleOwner){
 
                     map.clear()
+
+                    val poly = PolylineOptions();
+                    var a= it.path.first()
+                    var b = it.path.last()
+                    map.addMarker( MarkerOptions().position( LatLng( a[1] as Double, a[2] as Double )) )
+                    map.addMarker( MarkerOptions().position( LatLng( b[1] as Double, b[2] as Double )) )
+
                     //adding markers on map
-                    for (i in it.path){
-                        map.addMarker( MarkerOptions().position(LatLng(i[1] as Double, i[2] as Double )) )
-                        builder.include(LatLng(i[1] as Double, i[2] as Double ))
+                    for (i in it.path ){
+                        if (  i!==a || i!==b ){
+                            //map.addMarker( MarkerOptions().position(LatLng(i[1] as Double, i[2] as Double )) )
+                            poly.add( LatLng(i[1] as Double, i[2] as Double ) ).width(4f).color(Color.RED);
+                            builder.include(LatLng(i[1] as Double, i[2] as Double ))
+                        }
+
                     }
+                    map.addPolyline(poly);
                     //move map cam on added markers
                     var bounds=builder.build()
                     var camera=CameraUpdateFactory.newLatLngBounds(bounds,20)
                     map.animateCamera(camera)
 
                     //setting markers click listener
-                    map.setOnMarkerClickListener(OnMarkerClickListener { marker ->
+                    val url="https://opensky-network.org/api/states/all?icao24="+it.icao24+"&time=0"
+                    realTimeBtn.setOnClickListener { view ->
+                        val intent = Intent(activity, FlightRealTimePositionActivity::class.java)
+                        intent.putExtra("url", url  )
+                        startActivity(intent )
+                    }
 
-                        for (i in it.path){
 
-                            val pos = "lat/lng: ("+i[1]+","+i[2]+")"
-
-                            if ( pos == marker.position.toString() ){
-                                val time = i[0]
-                                //code to prevent scientific casting of time
-                                    val df = DecimalFormat("#")
-                                    df.setMaximumFractionDigits(0)
-                                    val time2=df.format(time)
-                                //end
-                                val url="https://opensky-network.org/api/states/all?icao24="+it.icao24+"&time="+time2
-
-                                realTimeBtn.isEnabled=true
-                                realTimeBtn.setOnClickListener { view ->
-                                    val intent = Intent(activity, FlightRealTimePositionActivity::class.java)
-                                    intent.putExtra("url", url  )
-                                    startActivity(intent )
-                                }
-                            }
-                        }
-                        false
-                    })
                 }
 
             })
